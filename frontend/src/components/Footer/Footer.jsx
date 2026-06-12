@@ -124,9 +124,13 @@ export default function Footer() {
             <div className="dev-info">
               <p className="dev-name">Oğuzhan Şekerci</p>
               <p className="dev-meta">Bilgisayar Mühendisliği</p>
-              <p className="dev-meta">Bitirme Projesi · 2024–2025</p>
+              <p className="dev-meta">Bitirme Projesi · 2025–2026</p>
             </div>
           </div>
+          <a href="https://github.com/oguzhan1414/deepfake-detector" target="_blank" rel="noreferrer" className="footer-email">
+            <svg viewBox="0 0 18 18" fill="none"><path d="M9 1C4.58 1 1 4.58 1 9c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.22.48-2.69-1.07-2.69-1.07-.36-.92-.88-1.17-.88-1.17-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.21 1.87.86 2.33.66.07-.52.28-.87.5-1.07-1.77-.2-3.63-.89-3.63-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 9 4.84c.68 0 1.36.09 2 .27 1.52-1.03 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38A8.01 8.01 0 0 0 17 9c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg>
+            github.com/oguzhan1414
+          </a>
           <a href="mailto:oguzhansekerci14@gmail.com" className="footer-email">
             <svg viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.4"/><path d="M1 6.5l8 5 8-5" stroke="currentColor" strokeWidth="1.4"/></svg>
             oguzhansekerci14@gmail.com
@@ -140,7 +144,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© 2025 DeepFakeAI — Oğuzhan Şekerci · Bilgisayar Mühendisliği Bitirme Projesi</span>
+        <span>© 2025–2026 DeepFakeAI — Oğuzhan Şekerci · Bilgisayar Mühendisliği Bitirme Projesi</span>
         <span className="footer-bottom-right">EfficientNet-B0 + LSTM · Celeb-DF v2 · PyTorch 2.2 · React 19</span>
       </div>
 

@@ -3,10 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const NAV = [
-  { to: '/',        label: 'Ana Sayfa',    end: true  },
-  { to: '/analyze', label: 'Analiz Et',    end: false },
-  { to: '/model',   label: 'Model Bilgisi',end: false },
-  { to: '/about',   label: 'Hakkında',     end: false },
+  { to: '/', label: 'Ana Sayfa', end: true },
 ];
 
 export default function Header() {
