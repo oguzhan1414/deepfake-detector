@@ -14,7 +14,6 @@ from PIL import Image
 import imageio_ffmpeg
 import subprocess
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from model import DeepFakeModel
 
 app = FastAPI(title="DeepFake Analiz API")
@@ -26,7 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL_PATH = Path(__file__).parent.parent / "checkpoints" / "best_model.pt"
+MODEL_PATH = Path(__file__).parent / "checkpoints" / "best_model.pt"
 SEQ_LEN    = 20
 device     = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
