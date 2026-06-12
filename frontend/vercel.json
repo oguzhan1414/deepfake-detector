@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/analyze",
+      "destination": "https://deepfake-detector-production-7339.up.railway.app/analyze"
+    },
+    {
+      "source": "/health",
+      "destination": "https://deepfake-detector-production-7339.up.railway.app/health"
+    }
+  ]
+}
