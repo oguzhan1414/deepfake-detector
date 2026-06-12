@@ -1,4 +1,6 @@
-# DeepFake Detector
+# DeepFake Detector  
+https://deepfake-detector-topaz.vercel.app/    ----> Link Üzerinden ulaşabilirsiniz
+
 
 Celeb-DF v2 veri seti üzerinde eğitilmiş **EfficientNet-B0 + LSTM** mimarisi kullanarak video tabanlı deepfake tespiti yapan bir web uygulaması.
 
