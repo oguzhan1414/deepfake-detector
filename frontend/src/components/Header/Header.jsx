@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
-const NAV = [
-  { to: '/', label: 'Ana Sayfa', end: true },
-];
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -21,15 +17,17 @@ export default function Header() {
     <header className={`navbar ${scrolled ? 'navbar--solid' : 'navbar--clear'}`}>
       <div className="navbar-inner">
 
-        {/* ── Logo (left) ── */}
+        {/* ── Logo ── */}
         <div className="navbar-logo" onClick={() => navigate('/')}>
           <div className="logo-mark">
-            <svg viewBox="0 0 44 44" fill="none">
-              <circle cx="22" cy="22" r="20" stroke="#f59e0b" strokeWidth="1.6"/>
-              <circle cx="22" cy="17" r="6.5" stroke="#f59e0b" strokeWidth="1.6"/>
-              <path d="M9 39c0-7.18 5.82-13 13-13s13 5.82 13 13" stroke="#f59e0b" strokeWidth="1.6" strokeLinecap="round"/>
-              <line x1="33" y1="10" x2="39" y2="4" stroke="#f59e0b" strokeWidth="1.6" strokeLinecap="round"/>
-              <line x1="33" y1="4"  x2="39" y2="10" stroke="#f59e0b" strokeWidth="1.6" strokeLinecap="round"/>
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="18" stroke="#00d4ff" strokeWidth="1.4"/>
+              <circle cx="20" cy="20" r="11" stroke="#00d4ff" strokeWidth="1" strokeDasharray="3 2" opacity="0.6"/>
+              <circle cx="20" cy="20" r="4"  fill="#00d4ff" opacity="0.9"/>
+              <line x1="2"  y1="20" x2="9"  y2="20" stroke="#00d4ff" strokeWidth="1.4" strokeLinecap="round"/>
+              <line x1="31" y1="20" x2="38" y2="20" stroke="#00d4ff" strokeWidth="1.4" strokeLinecap="round"/>
+              <line x1="20" y1="2"  x2="20" y2="9"  stroke="#00d4ff" strokeWidth="1.4" strokeLinecap="round"/>
+              <line x1="20" y1="31" x2="20" y2="38" stroke="#00d4ff" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>
           </div>
           <div className="logo-copy">
@@ -38,40 +36,38 @@ export default function Header() {
           </div>
         </div>
 
-        {/* ── Nav (center) ── */}
-        <nav className={`navbar-nav ${menuOpen ? 'navbar-nav--open' : ''}`}>
-          {NAV.map(({ to, label, end }) => (
+        {/* ── Right — nav + actions ── */}
+        <div className="navbar-right">
+          <nav className={`navbar-nav ${menuOpen ? 'navbar-nav--open' : ''}`}>
             <NavLink
-              key={to}
-              to={to}
-              end={end}
+              to="/"
+              end
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) => `nav-item ${isActive ? 'nav-item--active' : ''}`}
             >
-              {label}
+              Ana Sayfa
               <span className="nav-underline"/>
             </NavLink>
-          ))}
-        </nav>
+          </nav>
 
-        {/* ── Right actions ── */}
-        <div className="navbar-actions">
-          <div className="live-chip">
-            <span className="live-dot"/>
-            API Canlı
+          <div className="navbar-actions">
+            <div className="live-chip">
+              <span className="live-dot"/>
+              API Canlı
+            </div>
+            <NavLink to="/analyze" className="cta-btn">
+              Analiz Et
+            </NavLink>
+            <button
+              className="burger"
+              onClick={() => setMenuOpen(p => !p)}
+              aria-label="Menü"
+            >
+              <span className={menuOpen ? 'open' : ''}/>
+              <span className={menuOpen ? 'open' : ''}/>
+              <span className={menuOpen ? 'open' : ''}/>
+            </button>
           </div>
-          <NavLink to="/analyze" className="cta-btn">
-            Analiz Et
-          </NavLink>
-          <button
-            className="burger"
-            onClick={() => setMenuOpen(p => !p)}
-            aria-label="Menü"
-          >
-            <span className={menuOpen ? 'open' : ''}/>
-            <span className={menuOpen ? 'open' : ''}/>
-            <span className={menuOpen ? 'open' : ''}/>
-          </button>
         </div>
 
       </div>
