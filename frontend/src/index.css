@@ -1,0 +1,74 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Surfaces — deep navy ── */
+  --bg:          #050a18;
+  --surface:     #080f20;
+  --card:        #0c1628;
+  --card-hover:  #111e34;
+  --border:      rgba(0,212,255,0.1);
+  --border-2:    rgba(0,212,255,0.2);
+
+  /* ── Cyan (primary) ── */
+  --cyan:        #00d4ff;
+  --cyan-dim:    #0099bb;
+  --cyan-soft:   #33ddff;
+  --cyan-glow:   rgba(0,212,255,0.2);
+  --cyan-glow2:  rgba(0,212,255,0.06);
+
+  /* ── Purple (secondary) ── */
+  --purple:      #a855f7;
+  --purple-dim:  #7c3aed;
+  --purple-glow: rgba(168,85,247,0.18);
+
+  /* ── Amber (accent / stats) ── */
+  --amber:       #f59e0b;
+  --amber-dim:   #d97706;
+  --amber-soft:  #fbbf24;
+  --amber-glow:  rgba(245,158,11,0.2);
+  --amber-glow2: rgba(245,158,11,0.07);
+
+  /* ── Status ── */
+  --success:     #10b981;
+  --danger:      #ef4444;
+  --success-bg:  rgba(16,185,129,0.08);
+  --danger-bg:   rgba(239,68,68,0.08);
+
+  /* ── Text ── */
+  --text:        #e2f0f8;
+  --text-2:      #6a8aa8;
+  --text-3:      #2d4a62;
+
+  /* ── Fonts ── */
+  --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--cyan-glow);
+  color: var(--cyan-soft);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.35); }

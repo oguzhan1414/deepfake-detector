@@ -1,0 +1,56 @@
+.facegrid {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.facegrid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.facegrid-header:hover {
+  background: var(--bg-card-hover);
+}
+
+.facegrid-title {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.facegrid-toggle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.toggle--open {
+  transform: rotate(180deg);
+}
+
+.facegrid-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-primary);
+}
+
+.facegrid-img {
+  width: 100%;
+  border-radius: 6px;
+  image-rendering: pixelated;
+}
+
+.facegrid-caption {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+}
