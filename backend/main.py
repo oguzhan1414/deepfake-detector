@@ -62,10 +62,7 @@ def convert_to_h264(input_path: str) -> str:
 
 
 def extract_frames(video_path: str):
-    cap = cv2.VideoCapture(video_path)
-    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    # Kısa videolarda adım küçültülür; minimum 1, maksimum 5
-    step = max(1, min(5, total_frames // SEQ_LEN))
+    cap       = cv2.VideoCapture(video_path)
     frames    = []
     faces_vis = []
     frame_idx = 0
@@ -74,7 +71,7 @@ def extract_frames(video_path: str):
         ret, frame = cap.read()
         if not ret:
             break
-        if frame_idx % step == 0:
+        if frame_idx % 5 == 0:
             rgb      = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             boxes, _ = face_detector.detect(rgb)
             if boxes is not None and len(boxes) > 0:
@@ -143,7 +140,7 @@ async def analyze(video: UploadFile = File(...)):
     if len(frames) < SEQ_LEN:
         raise HTTPException(
             status_code=422,
-            detail=f"Yalnizca {len(frames)} yuz karesi bulundu. Videoda net ve buyuk bir yuz olmayabilir."
+            detail=f"Video cok kisa veya yuz tespit edilemedi. En az 5 saniye (25fps) ve net yuz iceren bir video yukleyin. ({len(frames)}/20 kare bulundu)"
         )
 
     seq    = np.stack(frames[:SEQ_LEN]).transpose(0, 3, 1, 2)
