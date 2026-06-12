@@ -137,11 +137,16 @@ async def analyze(video: UploadFile = File(...)):
     finally:
         os.unlink(tmp_in.name)
 
-    if len(frames) < SEQ_LEN:
+    if len(frames) < 5:
         raise HTTPException(
             status_code=422,
-            detail=f"Yalnizca {len(frames)} yuz karesi bulundu. En az {SEQ_LEN} gerekli."
+            detail=f"Yalnizca {len(frames)} yuz karesi bulundu. Videoda net bir yuz olmayabilir veya video cok kisa."
         )
+
+    # Kısa videolarda son kareyi tekrarlayarak SEQ_LEN'e tamamla
+    while len(frames) < SEQ_LEN:
+        frames.append(frames[-1])
+        faces_vis.append(faces_vis[-1])
 
     seq    = np.stack(frames[:SEQ_LEN]).transpose(0, 3, 1, 2)
     tensor = torch.tensor(seq).unsqueeze(0).to(device)
